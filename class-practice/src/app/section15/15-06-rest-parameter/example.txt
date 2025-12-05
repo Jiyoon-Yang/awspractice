@@ -1,0 +1,24 @@
+const profile = {
+    name: "철수",
+    age: 12,
+    school: "다람쥐초등학교"
+}
+undefined
+delete profile.school
+true
+profile
+{name: '철수', age: 12}
+const profile = {
+    name: "철수",
+    age: 12,
+    school: "다람쥐초등학교"
+}
+undefined
+profile
+{name: '철수', age: 12, school: '다람쥐초등학교'}
+const {school, ...rest} = profile
+undefined
+rest
+{name: '철수', age: 12}
+
+

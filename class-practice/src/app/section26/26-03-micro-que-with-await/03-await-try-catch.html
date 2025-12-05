@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>await와 try-catch</title>
+    <script>
+      const onClickWithoutAwait = () => {
+        try {
+          fetch("https://qqqq.com");
+          console.log("성공함");
+        } catch (error) {
+          console.log("에러뜸");
+          console.log("계속해서 문제가 생기면 연락 ㄱㄱ");
+        }
+      };
+
+      const onClickWithAwait = async () => {
+        try {
+          await fetch("https://qqqq.com");
+          console.log("성공함");
+        } catch (error) {
+          console.log("에러뜸");
+          console.log("계속해서 문제가 생기면 연락 ㄱㄱ");
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <button onclick="onClickWithoutAwait()">await 없이 try-catch</button>
+    <button onclick="onClickWithAwait()">await 함께 try-catch</button>
+  </body>
+</html>

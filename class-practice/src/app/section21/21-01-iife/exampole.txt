@@ -1,0 +1,17 @@
+(function 함수선언식(){
+    console.log("철수입니다.")
+})()
+VM196:2 철수입니다.
+
+(function(){
+    console.log("영희입니다")
+})()
+VM380:2 영희입니다
+
+(() => {
+    console.log("훈이입니다.")
+})() 
+VM521:2 훈이입니다.
+﻿
+Selection deleted
+

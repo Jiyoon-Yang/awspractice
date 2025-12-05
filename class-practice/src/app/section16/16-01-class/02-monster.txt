@@ -1,0 +1,39 @@
+class Monster {
+    power = 50
+
+    attack(){
+        console.log("공격합니다.")
+    }
+}
+undefined
+const myMonster = new Monster()
+undefined
+myMonster.power
+50
+myMonster.attack()
+51706-5b63f2c0f63a454b.js:1 공격합니다.
+undefined
+51706-5b63f2c0f63a454b.js:1 [Violation] 'requestAnimationFrame' handler took 127ms
+class superMonster extends Monster{
+    run(){
+        console.log("도망가자!~!~!")
+    }
+    // 오버라이딩
+    attack(){
+        console.log("슈퍼몬스터 필살기~!!!!~!~!@@@@@@@@")
+    }
+    
+}
+undefined
+const myMonster = new superMonster()
+undefined
+myMonster.power
+50
+myMonster.run()
+51706-5b63f2c0f63a454b.js:1 도망가자!~!~!
+undefined
+myMonster.attack()
+51706-5b63f2c0f63a454b.js:1 슈퍼몬스터 필살기~!!!!~!~!@@@@@@@@
+undefined
+﻿
+

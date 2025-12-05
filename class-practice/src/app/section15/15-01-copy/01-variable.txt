@@ -1,0 +1,13 @@
+const aaa = "철수"
+undefined
+let bbb = aaa
+undefined
+bbb
+'철수'
+bbb = "영희"
+'영희'
+aaa
+'철수'
+﻿
+Selection deleted
+

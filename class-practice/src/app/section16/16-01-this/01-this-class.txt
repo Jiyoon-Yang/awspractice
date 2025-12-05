@@ -1,0 +1,18 @@
+class Profile {
+    name = "철수"
+    age = 12
+    school(){
+        console.log(this)
+    }
+}
+undefined
+const profile = new Profile()
+undefined
+profile.name
+'철수'
+profile.school()
+51706-5b63f2c0f63a454b.js:1 
+Profile {name: '철수', age: 12}
+undefined
+
+

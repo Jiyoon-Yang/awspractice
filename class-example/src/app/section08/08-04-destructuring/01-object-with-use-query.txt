@@ -1,0 +1,21 @@
+function useQuery(받는변수) {
+
+    // 받는변수(ex, FETCH_BOARD) api 요청하기
+
+    return {
+    data: {
+        fetchBoard: {
+        
+            }   
+          }
+         }
+        }
+undefined
+const {data} = useQuery("요청하고싶은셋팅(ex, FETCH_BOARD)")
+undefined
+data.fetchBoard.writer
+'철수'
+const result = useQuery("요청하고싶은셋팅(ex, FETCH_BOARD)")
+undefined
+result.data.fetchBoard.writer
+'철수'

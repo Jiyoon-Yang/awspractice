@@ -1,0 +1,18 @@
+this
+Window {0: Window, 1: Window, window: Window, self: Window, document: document, name: '', location: Location, …}
+window.console.log()
+undefined
+window.alert("1234")
+undefined
+const profile = {
+    name: "철수",
+    age: 12,
+    school: function() {
+        console.log(this)
+    }
+    
+}
+undefined
+profile.school()
+51706-5b63f2c0f63a454b.js:1 {name: '철수', age: 12, school: ƒ}
+undefined

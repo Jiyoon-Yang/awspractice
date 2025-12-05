@@ -1,0 +1,27 @@
+const profile1 = {
+    name: "철수",
+    age: 12,
+    hobby: {
+        hobby1: "수영하기",
+        hobby2: "달리기"
+    }
+}
+undefined
+const profile2 = {...profile1}
+undefined
+profile2.hobby.hobby1 = "축구하기"
+'축구하기'
+profile1.hobby.hobby1
+'축구하기'
+const qqq = JSON.stringify(profile1)
+undefined
+qqq
+'{"name":"철수","age":12,"hobby":{"hobby1":"축구하기","hobby2":"달리기"}}'
+const profile3 = JSON.parse(qqq)
+undefined
+    profile3.hobby.hobby2 = "농구하기"
+'농구하기'
+profile1.hobby.hobby2
+'달리기'
+const profile4 = structuredClone(profile1)
+undefined

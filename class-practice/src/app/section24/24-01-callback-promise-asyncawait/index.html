@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="Ko">
+    <head>
+        <title>콜백과 친구들</title>
+        <!-- https://www.randomnumberapi.com/api/v1.0/random?min=1&max=100&count=1 https://jsonplaceholder.typicode.com/todos/1 -->
+        <!--  https://jsonplaceholder.typicode.com/todos/1 -->
+        <!-- https://jsonplaceholder.typicode.com/posts?userId -->
+        <script>
+            //    function addEventListener(aaa, bbb) {
+            //    사전에 셋팅된 API주소로 요청이 끝나면?
+            //    const res = 70; 셋팅된 API주소에서 받아온 결과
+            //    bbb(res)
+            // }
+
+            const onClickCallback = () => {
+                const aaa = new XMLHttpRequest();
+                aaa.open("get", "http://main-example.codebootcamp.co.kr/profile/철수");
+                aaa.send();
+                aaa.addEventListener("load", (res) => {
+                    console.log(res); // API요청 결과
+                    const num = res.target.response;
+
+                    const bbb = new XMLHttpRequest();
+                    bbb.open("get", `https://jsonplaceholder.typicode.com/todos/${num}`);
+                    bbb.sent();
+                    bbb.addEventListener("load", (res) => {
+                        const userId = res.target.response.userId; // { ... 게시글 }
+
+                        const ccc = new XMLHttpRequest();
+                        ccc.open("get", `https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
+                        ccc.send();
+                        ccc.addEventListener("load", (res) => {
+                            console.log(res.target.response); // 해당유저가 쓴 다른 게시글 목록들...
+                        });
+                    });
+                });
+            };
+
+            const onClickPromise = () => {
+                console.log("첫번쨰 실행");
+                fetch("http://main-example.codebootcamp.co.kr/profile/철수")
+                    .then((res) => {
+                        console.log("두번째 실행");
+                        console.log(res); // API요청 결과
+                        const num = res.target.response;
+
+                        return fetch(`https://jsonplaceholder.typicode.com/todos/${num}`);
+                    })
+                    .then((res) => {
+                        console.log("세번째 실행");
+
+                        const userId = res.target.response.userId;
+
+                        return fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
+                    })
+                    .then((res) => {
+                        console.log("네번쨰 실행");
+
+                        console.log(res.target.response);
+                    })
+                    .catch((error) => {
+                        //에러처리
+                    });
+                console.log("다섯번째 실행");
+            };
+            // fetch, axios 등 => 대표적인 Promise를 지원하는 기능
+            // Promise를 기다리는 2가지 방법
+            // 1. .then()을 활용
+            // 2. await를 활용 => await는 아무거나 기다리는게 아니고, Promise를 기다림
+            const onClickAsyncAwait = async () => {
+                const num = await fetch("http://main-example.codebootcamp.co.kr/profile/철수");
+                const userId = await fetch(`https://jsonplaceholder.typicode.com/todos/${num}`);
+                const result = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
+            };
+        </script>
+    </head>
+    <body>
+        <button onclick="onClickCallback()">Callback 연습하기</button>
+        <button onclick="onClickPromise()">Promise 연습하기</button>
+        <button onclick="onClickAsyncAwait()">AsyncAwait 연습하기</button>
+    </body>
+</html>

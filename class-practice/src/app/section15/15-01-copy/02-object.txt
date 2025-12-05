@@ -1,0 +1,15 @@
+const profile1 = {
+    name: "철수",
+    age: 12
+}
+undefined
+const profile2 = profile1
+undefined
+profile2
+{name: '철수', age: 12}
+profile2.name = "영희"
+'영희'
+profile2
+{name: '영희', age: 12}
+profile1
+{name: '영희', age: 12}

@@ -1,0 +1,77 @@
+unction aaa(){
+    const apple = 10
+    
+  return  function bbb(){
+    const banana = 20    
+    console.log(banana)
+    console.log(apple)
+    }
+}
+undefined
+aaa()
+ƒ bbb(){
+    const banana = 20    
+    console.log(banana)
+    console.log(apple)
+    }
+aaa()()
+VM310:6 20
+VM310:7 10
+undefined
+(aaa())()
+VM310:6 20
+VM310:7 10
+undefined
+
+
+
+
+
+// 함수를 리턴하는 함수 - 인자
+function aaa(apple){
+return function bbb(banana){
+    console.log(banana)
+    console.log(apple)
+}
+    
+}
+undefined
+aaa(10)(20)
+VM674:3 20
+VM674:4 10
+undefined
+
+
+// 함수를 리턴하는 함수 - 화살표
+
+const aaa = (apple) =>(banana) => {
+    console.log(banana)
+    console.log(apple)
+    }
+    
+undefined
+aaa(10)(20)
+VM1152:2 20
+VM1152:3 10
+undefined
+
+
+//
+const aaa = (apple) => (banana) => (tomato) => (orange) => {
+    console.log(banana)
+    console.log(apple)
+    console.log(tomato)
+    console.log(orange)
+    
+}
+undefined
+aaa(10)(20)(30)(40)
+VM1637:2 20
+VM1637:3 10
+VM1637:4 30
+VM1637:5 40
+undefined
+﻿
+
+
+

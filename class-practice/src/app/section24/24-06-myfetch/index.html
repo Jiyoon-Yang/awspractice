@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>나만의fetch만들기</title>
+    <script>
+      const myfetch = (API엔드포인트) => {
+        return new Promise((resolve, reject) => {
+          const qq = new XMLHttpRequest();
+          qq.open("get", API엔드포인트);
+          qq.send();
+          qq.addEventListener("load", (res) => {
+            resolve(res.target.response);
+          });
+        });
+      };
+      const onClickFetch = async () => {
+        // 1. .then으로 받기
+        myfetch("http://main-example.codebootcamp.co.kr/profile/철수").then((result) => {
+          console.log(result);
+        });
+        // 2. await
+        const result = await myfetch(
+          "http://main-example.codebootcamp.co.kr/profile/철수"
+        );
+        console.log(result);
+      };
+      //   const result = await fetch("http://main-example.codebootcamp.co.kr/profile/철수");
+    </script>
+  </head>
+  <body>
+    <button onclick="onClickFetch()">프로필 조회하기</button>
+  </body>
+</html>

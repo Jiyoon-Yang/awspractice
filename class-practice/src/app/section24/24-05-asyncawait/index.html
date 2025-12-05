@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>Promise 실습</title>
+  </head>
+  <script>
+    const 프로필조회기능PromiseThen = () => {
+      // 기다렸다가 성공,실패 처리하는 기능들 성공, 실패 처리 통합을 위해 사용
+      const 성공한결과 = new Promise((resolve, reject) => {
+        // 서버에 프로필조회 API 요청하는데 3초 걸리는 상황을 가정
+        setTimeout(() => {
+          // 1. 성공
+          const profile = "철수프로필";
+          resolve(profile);
+
+          // 2. 실패
+          reject("프로필 조회를 실패했습니다.");
+        }, 3000);
+      }).then((성공한결과) => {
+        console.log(성공한결과); // 철수프로필
+      });
+
+      console.log("끝났습니다."); // 끝났습니다.
+    };
+
+    const 프로필조회기능AsyncAwait = async () => {
+      // 기다렸다가 성공,실패 처리하는 기능들 성공, 실패 처리 통합을 위해 사용
+      const 성공한결과 = await new Promise((resolve, reject) => {
+        // 서버에 프로필조회 API 요청하는데 3초 걸리는 상황을 가정
+        setTimeout(() => {
+          // 1. 성공
+          const profile = "철수프로필";
+          resolve(profile);
+
+          // 2. 실패
+          reject("프로필 조회를 실패했습니다.");
+        }, 3000);
+      });
+
+      console.log(성공한결과); // 철수프로필
+
+      console.log("끝났습니다."); // 끝났습니다.
+    };
+  </script>
+  <body>
+    <button onclick="프로필조회기능PromiseThen()">프로필조회(PromiseThen)</button>
+    <button onclick="프로필조회기능AsyncAwait()">프로필조회(AsyncAwait)</button>
+  </body>
+</html>

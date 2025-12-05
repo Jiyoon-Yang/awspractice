@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`내가 원하는대로 잘 그려지는지 확인하기 1`] = `
+<div>
+  <div>
+    철수는 12살 입니다.
+  </div>
+  취미 입력:
+  <input />
+  <button>
+    등록하기
+  </button>
+</div>
+`;
